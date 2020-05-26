@@ -1,0 +1,66 @@
+{
+  "object": [
+    {
+      "name": "诛仙1",
+      "score": 7.5,
+      "type": "2D",
+      "show": "IMAX",
+      "posterUrl": "https://gw.alicdn.com/i2/TB1mWpserj1gK0jSZFOXXc7GpXa_.jpg_160x160Q30s100.jpg_.webp",
+      "director": ["程小东"],
+      "actor": ["肖战", "李沁", "孟美岐", "唐艺昕"]
+    },
+    {
+      "name": "名侦探柯南：绀青之拳，预告",
+      "score": 8.5,
+      "type": null,
+      "show": null,
+      "posterUrl": "https://gw.alicdn.com/i4/TB1gyN4e7T2gK0jSZFkXXcIQFXa_.jpg_160x160Q30s100.jpg_.webp",
+      "director": ["永冈智佳"],
+      "actor": ["高山南", "山口胜平"]
+    },
+    {
+      "name": "罗小黑战记",
+      "score": 9.1,
+      "type": null,
+      "show": null,
+      "posterUrl": "https://gw.alicdn.com/i3/TB14u1UfAP2gK0jSZPxXXacQpXa_.jpg_160x160Q30s100.jpg_.webp",
+      "director": ["MTJJ木头"],
+      "actor": ["山新", "刘明月", "郝祥海"]
+    },
+    {
+      "name": "决胜时刻",
+      "score": 9.1,
+      "type": null,
+      "show": null,
+      "posterUrl": "https://gw.alicdn.com/i1/TB1FciZgAP2gK0jSZPxXXacQpXa_.jpg_160x160Q30s100.jpg_.webp",
+      "director": ["黄建新", "宁海强"],
+      "actor": ["唐国强", "刘劲", "孟美岐", "黄景瑜"]
+    },
+    {
+      "name": "小小愿望",
+      "score": 8.1,
+      "type": null,
+      "show": null,
+      "posterUrl": "https://gw.alicdn.com/i4/TB1uNgkepP7gK0jSZFjXXc5aXXa_.jpg_160x160Q30s100.jpg_.webp",
+      "director": ["田羽生"],
+      "actor": []
+    },
+    {
+      "name": "小小愿望",
+      "score": 8.1,
+      "type": null,
+      "show": null,
+      "posterUrl": "https://gw.alicdn.com/i4/TB1uNgkepP7gK0jSZFjXXc5aXXa_.jpg_160x160Q30s100.jpg_.webp",
+      "director": ["田羽生"],
+      "actor": []
+    }
+  ],
+  "page": {
+    "currentPage": 0,
+    "hasNextPage": false,
+    "hasPreviousPage": false,
+    "totalPages": 2,
+    "totalRecords": 20
+  },
+  "code": 1
+}

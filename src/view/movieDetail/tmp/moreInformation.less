@@ -1,0 +1,45 @@
+@import "~@style/mixin.less";
+.more-info-component-wrapper {
+  background: #fff;
+  h2 {
+    line-height: 37.5px;
+    padding-bottom: 9px;
+    padding-left: 16px;
+    color: #000;
+    .font(17px, #000);
+    font-weight: 500;
+  }
+  .article-list {
+    .item {
+      position: relative;
+      display: flex;
+      padding: 0 20px 15px;
+      //margin-bottom: 15px;
+      height: 130px;
+      .article-detail {
+        flex: 1;
+        h3 {
+          padding-top: 15px;
+          line-height: 1.4;
+          .multi-ellipsis(3);
+          .font(16px, #333);
+        }
+        .article-info {
+          position: absolute;
+          left: 20px;
+          bottom: 15px;
+          .font(12px, #bcbcbc);
+          > span {
+            margin-right: 19px;
+          }
+        }
+      }
+      .article-poster {
+        .wh(135px, 130px);
+        > img {
+          .wh(100%, 100%);
+        }
+      }
+    }
+  }
+}

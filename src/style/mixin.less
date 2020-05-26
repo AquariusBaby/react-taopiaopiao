@@ -1,0 +1,127 @@
+// 单行文本溢出省略
+.single-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+// 多行文本溢出省略
+.multi-ellipsis(@lines: 2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @lines;
+}
+// 2倍3倍背景图
+//.bg-img-set(@src, @src3x, @sizeX: 100%) {
+//    background: url(@src) no-repeat;
+//    background: -webkit-image-set(url(@src) 2x, url(@src3x) 3x) no-repeat;
+//    background-size: @sizeX auto;
+//    background-position: center;
+//}
+
+// 2倍3倍背景图
+.bg-img(@url) {
+    background-image: ~"url(@{url}@2x.png)";
+    @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+        background-image: ~"url(@{url}@3x.png)";
+    }
+}
+
+// 定位
+.position-left-top(@position, @left, @top) {
+    position: @position;
+    left: @left;
+    top: @top;
+}
+.position-left-bottom(@position, @left, @bottom) {
+    position: @position;
+    left: @left;
+    bottom: @bottom;
+}
+.position-right-top(@position, @right, @top) {
+    position: @position;
+    right: @right;
+    top: @top;
+}
+.position-right-bottom(@position, @right, @bottom) {
+    position: @position;
+    right: @right;
+    bottom: @bottom;
+}
+.position-all(@position) {
+    position: @position;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+// text
+.font(@fontSize, @color, @fontWeight: normal) {
+    font-size: @fontSize;
+    color: @color;
+    font-weight: @fontWeight;
+}
+
+/*宽高*/
+.wh(@width,@height) {
+    width: @width;
+    height: @height
+}
+
+/* border 1px */
+
+.half-border(top, @border-color: #dcdedf) {
+    &:after {
+        border-top-width: 1px !important;
+    }
+}
+
+.half-border(right, @border-color: #dcdedf) {
+    &:after {
+        border-right-width: 1px !important;
+    }
+}
+
+.half-border(bottom, @border-color: #dcdedf) {
+    &:after {
+        border-bottom-width: 1px !important;
+    }
+}
+
+.half-border(left, @border-color: #dcdedf) {
+    &:after {
+        border-left-width: 1px !important;
+    }
+}
+
+.half-border(all, @border-color: #dcdedf, @border-radius: 0px, @bg-color: transparent) {
+    &:after {
+        border-width: 1px !important;
+    }
+}
+
+.half-border(@_, @border-color: #dcdedf, @border-radius: 0px, @bg-color: transparent) {
+    position: relative;
+    z-index: 1;
+    &:after {
+        z-index: -1;
+        box-sizing: border-box;
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200%;
+        height: 200%;
+        background-color: @bg-color;
+        transform: scale(0.5, 0.5);
+        -webkit-transform: scale(0.5, 0.5);
+        border-radius: @border-radius * 2;
+        border-style: solid;
+        border-color: @border-color;
+        border-width: 0 0 0 0;
+        transform-origin: top left;
+        -webkit-transform-origin: top left;
+    }
+}

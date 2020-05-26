@@ -1,0 +1,93 @@
+@import "~@style/mixin.less";
+.comments-component-wrapper {
+  background: #fff;
+  .hot-comment {
+    h2 {
+      font-size: 17px;
+      line-height: 37.5px;
+      padding-top: 13.875px;
+      padding-bottom: 9.375px;
+      color: #000;
+      padding-left: 16px;
+      font-weight: 500;
+    }
+    .tag-list {
+      padding: 0 15px;
+      .item {
+        display: inline-block;
+        padding: 7px 15px;
+        margin: 0 7.875px 10.125px 0;
+        line-height: 13.875px;
+        font-size: 13px;
+        color: #000;
+        .half-border(all, #bcbcbc, 100px);
+      }
+    }
+  }
+  .comments-list {
+    margin-left: 16px;
+    .item {
+      margin: 9px 0;
+      padding-bottom: 9px;
+      .user-info {
+        display: flex;
+        align-items: center;
+        .avatar {
+          padding: 2px;
+          margin-right: 15px;
+          .wh(45px, 45px);
+          > img {
+            .wh(100%, 100%);
+            border-radius: 100%;
+          }
+        }
+        .user-wrap {
+          .name {
+            .font(15px, #000);
+            font-weight: 700;
+          }
+          .movie-info {
+            display: flex;
+            align-items: center;
+            height: 24px;
+            .buy {
+              display: inline-block;
+              padding: 0 3px;
+              margin-right: 3px;
+              height: 15px;
+              line-height: 15px;
+              .font(12px, #ff2e62);
+              .half-border(all, rgba(255,46,98,.4), 4px);
+            }
+            .score {
+              .font(13px, #ff9c1c);
+            }
+          }
+        }
+      }
+      .comment-content {
+        padding-right: 15px;
+        .font(15px, #000);
+        .multi-ellipsis(7);
+        line-height: 24px;
+        text-align: justify;
+      }
+      .other {
+        display: flex;
+        align-items: center;
+        margin-top: 9px;
+        padding-right: 15px;
+        height: 29px;
+        .font(13px, #bcbcbc);
+        .date {
+          flex: 1;
+        }
+        .icon {
+          margin-left: 7px;
+          margin-right: 3px;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

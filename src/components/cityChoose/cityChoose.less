@@ -1,0 +1,87 @@
+@import "../../style/mixin";
+.city-choose-components-wrapper {
+  display: none;
+  .position-all(fixed);
+  .wh(100%, 100%);
+  //opacity: 0;
+  //-webkit-transform: translate3d(0,-50px,0);
+  //transform: translate3d(0,-50px,0);
+  transition: opacity .2s ease-out, transform .2s ease-out, -webkit-transform .2s ease-out;
+  //overflow: hidden;
+  overflow-y: scroll;
+  background: #fcfcfc;
+  z-index: 100;
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none;
+  }
+  &.show-list {
+    display: block;
+  }
+  .city-title {
+    .wh(100%, 45px);
+    .half-border(bottom, #e9e9e9);
+    .position-left-top(fixed, 0, 0);
+    .font(16px, #000);
+    background: #fff;
+    line-height: 45px;
+    text-align: center;
+    //position: absolute;
+    &::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
+      display: none;
+    }
+    .btn-close {
+      .position-right-top(absolute, 0, 0);
+      .wh(45px, 45px);
+      .font(20px, #777);
+      text-align: center;
+    }
+  }
+  .city-list {
+    //box-sizing: border-box;
+    margin-top: 45px;
+    .font(12px, #777);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    //.position-all(absolute);
+    //top: 45px;
+    h3 {
+      padding: 9px 12px;
+      background: #eee;
+      .font(12px, #777, 400);
+    }
+    ul {
+      padding-left: 15px;
+    }
+    .city-item {
+      display: block;
+      padding: 12px 12px 12px 0;
+      overflow: hidden;
+      font-size: 15px;
+      background: transparent linear-gradient(0deg,#ededed,#ededed 50%,transparent 0,transparent 0) 0 100% repeat-x;
+      background-size: 100% 1px;
+      &:last-child {
+        background-image: none;
+      }
+    }
+  }
+  .letter-key-list-enter {
+    //transition: opacity .2s ease-out,transform .2s ease-out,-webkit-transform .2s ease-out;
+    transform: translate3d(100%,-50%,0);
+  }
+  .letter-key-list-enter-active {
+    opacity: 1;
+    transform: translate3d(0,-50%,0);
+  }
+  .letter-key-list-exit {
+    //opacity: 1;
+    //transform: translate3d(0,-50%,0);
+  }
+  .letter-key-list-exit-active {
+    //transform: translate3d(100%,-50%,0);
+  }
+}

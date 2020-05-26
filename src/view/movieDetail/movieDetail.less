@@ -1,0 +1,187 @@
+@import "~@style/mixin.less";
+.movie-detail-wrapper {
+  //height: 100%;
+  //overflow-y: scroll;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .wh(100%, 100%);
+  overflow: auto;
+  .video-header {
+    margin-bottom: -4%;
+    background-color: #000;
+    .poster {
+      position: relative;
+      .wh(100%, 234px);
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: cover;
+      .video-player {
+        .wh(100%, 100%);
+      }
+      .play-btn {
+        .wh(50px, 50px);
+        .position-left-top(absolute, 50%, 50%);
+        transform: translate(-50%, -50%);
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-image: url(//gw.alicdn.com/tfs/TB1W9RAa56guuRjy1XdXXaAwpXa-150-150.png);
+        background-size: contain;
+        z-index: 10;
+      }
+      .back-gradient {
+        position: absolute;
+        .wh(100%, 100%);
+        opacity: 0.6;
+        background-image: -webkit-linear-gradient(bottom,#000 7%,transparent 60%);
+        background-image: linear-gradient(0deg,#000 7%,transparent 60%);
+      }
+    }
+  }
+  .show-info {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 22px 22px 0 22px;
+    background-color: #fff;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    min-height: 145px;
+    .poster-wrap {
+      //.position-left-top(absolute, 22px, 22px);
+      position: relative;
+      .wh(88px, 129px);
+      border-radius: 4px;
+      background-size: 100% 100%;
+      background-color: #ccc;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      .type {
+        .position-left-top(absolute, 4px, 4px);
+        display: inline-block;
+        height: 15px;
+        line-height: 15px;
+        padding: 0 3px;
+        border-radius: 2px;
+        background-color: #999;
+        .font(12px, #fff);
+      }
+    }
+    .info-container {
+      flex: 1;
+      padding-left: 15px;
+      .movie-name {
+        margin-bottom: 14px;
+        line-height: 30px;
+        .font(22px, #000, 700);
+      }
+      .movie-detail {
+        .show-intro {
+          margin-bottom: 8px;
+          line-height: 1.1;
+          .font(12px, #777, 700);
+          .want {
+            font-weight: 700;
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+  .show-remark {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 22px 5px 22px;
+    background: #fff;
+    .score {
+      .remark-score {
+        display: flex;
+        align-items: center;
+        .score-num {
+          margin-right: 4px;
+          line-height: 38px;
+          .font(35px, #000, 500);
+        }
+      }
+      .remark-bd {
+        display: flex;
+        align-items: center;
+        line-height: 1.5;
+        .remark-title {
+          .font(13px, #000, 700);
+        }
+        .remark-num {
+          margin-left: 2px;
+          .font(12px, #777);
+        }
+      }
+    }
+    .score-detail {
+      flex: 1;
+      padding-left: 20px;
+      .score-detail-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2px;
+        line-height: 1.5;
+        .process-bar-container {
+          margin-left: 5px;
+          flex: 1;
+        }
+      }
+    }
+  }
+  .tag-fixed-container {
+    .wh(100%, 48px);
+    margin-top: 10px;
+    background: #fff;
+  }
+  .tab-container {
+    .wh(100%, 48px);
+    .half-border(bottom);
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: #fff;
+    z-index: 100;
+    &.fix-tag {
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+    .tab-item {
+      flex: 1;
+      line-height: 16px;
+      text-align: center;
+      .font(16px, #4a4a4a);
+      &.active {
+        //.font(16px, #4a4a4a, 700);
+        font-weight: 700;
+      }
+    }
+    .tab-line {
+      .wh(16px, 2px);
+      .position-left-bottom(absolute, 0, 0);
+      transition: left .3s cubic-bezier(.645,.045,.355,1);
+      transform-origin: 0 0;
+      transform: translateX(-50%);
+      background: #000;
+      &.tab-left {
+        //transform: translate3d(100% / 3, 0px, 0px);
+        left: 100% / 6;
+      }
+      &.tab-center {
+        //transform: translate3d(39px, 0px, 0px);
+        left: 50%;
+      }
+      &.tab-right {
+        left: 100% / 6 * 5;
+        //transform: translate3d(133px, 0px, 0px);
+      }
+    }
+  }
+}

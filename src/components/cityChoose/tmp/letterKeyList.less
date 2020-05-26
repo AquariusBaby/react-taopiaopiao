@@ -1,0 +1,20 @@
+@import "../../../style/mixin";
+.city-indexed {
+  .position-right-top(fixed, 0, 50%);
+  padding: 3px 0;
+  width: 40px;
+  white-space: nowrap;
+  will-change: transform;
+  //-webkit-transform: translate3d(100%,-50%,0);
+  //transform: translate3d(100%,-50%,0);
+  transform: translate3d(0,-50%,0);
+  transition: opacity .2s ease-out,transform .2s ease-out,-webkit-transform .2s ease-out;
+  overflow: hidden;
+  z-index: 101;
+  .index-item {
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    .font(12px, #1394f3);
+  }
+}
