@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import cityList from './cityList1';
+import cityList from './res.json';
 import './cityChoose.less';
 import LetterKeyList from './tmp/letterKeyList';
 import {CSSTransition} from 'react-transition-group';
@@ -8,50 +8,50 @@ import {CSSTransition} from 'react-transition-group';
 const hotCityList = [
   {
     "cityCode": "110100",
-    "id": "3",
+    "id": "1",
     "parentId": "0",
     "pinYin": "BEIJING",
     "regionName": "北京"
   }, {
     "cityCode": "310100",
-    "id": "1",
+    "id": "10",
     "parentId": "0",
     "pinYin": "SHANGHAI",
     "regionName": "上海"
   }, {
     "cityCode": "440300",
-    "id": "28",
+    "id": "30",
     "parentId": "0",
     "pinYin": "SHENZHEN",
     "regionName": "深圳"
   }, {
     "cityCode": "440100",
-    "id": "8",
+    "id": "20",
     "parentId": "0",
     "pinYin": "GUANGZHOU",
     "regionName": "广州"
   }, {
     "cityCode": "510100",
-    "id": "70",
+    "id": "59",
     "parentId": "0",
     "pinYin": "CHENGDU",
     "regionName": "成都"
   }, {
     "cityCode": "420100",
-    "id": "10",
+    "id": "57",
     "parentId": "0",
     "pinYin": "WUHAN",
     "regionName": "武汉"
   }, {
     "cityCode": "330100",
-    "id": "16",
+    "id": "50",
     "parentId": "0",
     "pinYin": "HANGZHOU",
     "regionName": "杭州",
     "selected": "0"
   }, {
     "cityCode": "500100",
-    "id": "40",
+    "id": "45",
     "parentId": "0",
     "pinYin": "CHONGQING",
     "regionName": "重庆"

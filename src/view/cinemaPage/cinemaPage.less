@@ -1,0 +1,97 @@
+@import "../../style/mixin.less";
+.cinema-page-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 50px;
+    .cinema-container {
+        margin-bottom: 50px;
+        height: 100%;
+        width: 100%;
+        overflow: scroll;
+    }
+    .filter-option-list {
+        display: flex;
+        align-items: center;
+        // text-align: right;
+        padding-right: 15px;
+        .item {
+            .half-border(all);
+            display: inline-block;
+            padding: 8px 10px;
+            margin-right: 10px;
+            text-align: center;
+            .font(13px, #666, 700);
+            &.cur {
+                color: #ff5456;
+                &::after {
+                    border-color: #ff5456;
+                }
+            }
+            &::after {
+                border-radius: 8px;
+            }
+        }
+        .search-icon {
+            .font(20px, #999);
+        }
+    }
+    .option-filter-modal-wrapper {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,0.3);
+        z-index: 99;
+        // top: 100px;
+        display: flex;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #000;
+    }
+    .cinema-list {
+        // margin-bottom: 60px;
+        // background-color: none;
+        padding: 9px;
+        .cinema-item {
+            padding: 11px 12px 15px 12px;
+            margin-bottom: 9px;
+            background: #fff;
+            // .half-border(bottom);
+            border-radius: 6px;
+            .title {
+                font-size: 16px;
+                font-weight: 500;
+                color: #000;
+                margin-bottom: 2px;
+                line-height:24px;
+            }
+            .address {
+                color: #666;
+                font-size:13px;
+                line-height:19.5px;
+            }
+            .cinema-support {
+                margin: 3px 0;
+                .support-item {
+                    display: inline-block;
+                    padding: 0 3px;
+                    height: 15px;
+                    line-height: 15px;
+                    font-size: 10px;
+                    .half-border(all);
+                    &::after {
+                        border-radius: 2px;
+                    }
+                }
+            }
+        }
+    }
+}

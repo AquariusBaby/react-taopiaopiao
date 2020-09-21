@@ -1,95 +1,104 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useReducer} from 'react';
 import './hotRelease.less';
 import LoadMore from '@components/loadMore';
 import {getHotReleaseList} from '@api/homeService';
 
-export default function HotRelease({history}) {
-  const [movieList, setMovieList] = useState([]);
-  const [isLoading, setLoading] = useState(false);
+function reducer(state, action) {
+  switch(action.type) {
+    case 'loadMore':
+      return [...state, ...action.list];
+    case 'reset': 
+      return [];
+    default:
+      throw new Error(`'${action.type}' type is not defined, check you code`);
+  }
+}
 
-  const loadMoreRef = useRef(null);
+export default function HotRelease({history, isShow}) {
+  // const [isLoading, setLoading] = useState(false);
+  const [scrollHeight, setScrollHeight] = useState(0);
+
+  const container = useRef(null);
   const scrollContainerRef = useRef(null);
+  const loadMoreRef = useRef(null);
+
+  const [movieList, dispatch] = useReducer(reducer, []);
+
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
+    // pullData();
+    console.log(123);
+    async function pullData() {
+      // setLoading(true);
+      try {
+        let data = await getHotReleaseList({});
+        if (data.code !== 1) {
+  
+        }
+        dispatch({type: 'loadMore', list: data.object})
+      } catch(error) {
+  
+      }
+      // setLoading(false);
+    };
     pullData();
-    // return () => {
+  }, [dispatch, scrollHeight])
 
-    // }
-  }, [])
-
-  let pullData = async () => {
-    setLoading(true);
-    let data = await getHotReleaseList({});
-    setLoading(false);
-    // if (data.code !== 1) {
-
-    // }
-    setMovieList([...movieList, ...data.object])
-  };
-
-  let listenScroll = () => {
+  function listenScroll() {
+    let containerDom = container.current;
+    let scrollContainerDom = scrollContainerRef.current;
     let loadMoreDom = loadMoreRef.current;
-    if (!isLoading && loadMoreDom.getBoundingClientRect().top + loadMoreDom.scrollHeight < scrollContainerRef.current.scrollHeight) {
-      pullData();
+    // console.log(scrollContainerDom.scrollHeight ,loadMoreDom.getBoundingClientRect().top, containerDom.clientHeight);
+
+    if (loadMoreDom.getBoundingClientRect().top <= containerDom.clientHeight) {
+      setScrollHeight(scrollContainerDom.scrollHeight);
     }
-    // console.log(loadMoreDom.getBoundingClientRect().top, 'aa')
-  };
+  }
 
-  // let listenScroll = useEffect(() => {
-  //   console.log(123)
-  //   let loadMoreDom = loadMoreRef.current;
-  //   if (!isLoading && loadMoreDom.getBoundingClientRect().top + loadMoreDom.scrollHeight < scrollContainerRef.current.scrollHeight) {
-  //     setLoading(true);
-  //     pullData();
-  //   }
-  // }, [])
-
-  let toDetail = (data) => {
+  function toDetail(data) {
     history.push({
       pathname: '/detail'
     });
   };
 
-  // render() {
-    return (
-      <div className="hot-release-wrapper" onScroll={listenScroll}>
-        <ul className="hot-release-list" ref={scrollContainerRef}>
-          {
-            movieList.length > 0 &&
-            movieList.map((item ,index) => (
-              <li className="item" key={index} onClick={() => {toDetail(item)}}>
-                <div className="info">
-                  <div className="poster">
-                    <img src={item.posterUrl} className="poster-img" alt=""/>
-                    <i className="icon iconfont play-btn">&#xe8bc;</i>
-                  </div>
-                  <div className="content">
-                    <div className="title">
-                      <span className="name">{item.name}</span>
-                      {
-                        item.type && <span className="type">{item.type}</span>
-                      }
-                      {
-                        item.show && <span className="show">{item.show}</span>
-                      }
-                    </div>
-                    <div className="brief score">淘票票评分 <span className="num">{item.score}</span></div>
-                    {
-                      item.director.length > 0 && <div className="brief">导演：{item.director.join(' ')}</div>
-                    }
-                    {
-                      item.actor.length > 0 && <div className="brief">主演：{item.actor.join(' ')}</div>
-                    }
-                    <div className="fantastic"></div>
-                  </div>
-                  <span className="btn-wrap">购票</span>
+  return (
+    <div className={`hot-release-wrapper ${isShow ? '' : 'hide'}`} ref={container} onScroll={listenScroll}>
+      <ul className="hot-release-list" ref={scrollContainerRef}>
+        {
+          movieList.length > 0 &&
+          movieList.map((item ,index) => (
+            <li className="item" key={index} onClick={() => {toDetail(item)}}>
+              <div className="info">
+                <div className="poster">
+                  <img src={item.posterUrl} className="poster-img" alt=""/>
+                  <i className="icon iconfont play-btn">&#xe8bc;</i>
                 </div>
-              </li>
-            ))
-          }
-        </ul>
-        <LoadMore loadMoreRef={loadMoreRef} />
-      </div>
-    )
-  // }
+                <div className="content">
+                  <div className="title">
+                    <span className="name">{item.name}</span>
+                    {
+                      item.type && <span className="type">{item.type}</span>
+                    }
+                    {
+                      item.show && <span className="show">{item.show}</span>
+                    }
+                  </div>
+                  <div className="brief score">淘票票评分 <span className="num">{item.score}</span></div>
+                  {
+                    item.director.length > 0 && <div className="brief">导演：{item.director.join(' ')}</div>
+                  }
+                  {
+                    item.actor.length > 0 && <div className="brief">主演：{item.actor.join(' ')}</div>
+                  }
+                  <div className="fantastic"></div>
+                </div>
+                <span className="btn-wrap">购票</span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+      <LoadMore loadMoreRef={loadMoreRef} />
+    </div>
+  )
 }

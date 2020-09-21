@@ -60,6 +60,16 @@ li {
     list-style: none;
 }
 
+/* 消除button的默认样式 */
+button {
+    margin: 0;
+    padding: 0;
+    /* 自定义边框 */
+    border: 1px solid transparent;
+    /* 消除默认点击蓝色边框效果 */
+    outline: none;
+}
+
 ::-webkit-scrollbar {
     width: 0 !important;
     height: 0 !important;

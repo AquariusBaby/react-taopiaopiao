@@ -1,12 +1,40 @@
+@import "../../style/mixin.less";
 .home-page-wrapper {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    padding-top: 50px;
-    // overflow: scroll;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 50px;
+  // overflow: scroll;
+  .tab-choose {
+    display: flex;
+    align-items: center;
+    position: relative;
+    .tab-item {
+      padding: 0 15px;
+      height: 50px;
+      line-height: 50px;
+      .font(16px, #777);
+      &.active {
+        .font(16px, #ff2e62, 700);
+      }
+    }
+    .tab-ink-bar {
+      .wh(16px, 2px);
+      .position-left-bottom(absolute, 0, 3px);
+      transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transform-origin: 0 0;
+      background: #ff2e62;
+      &.tab-left {
+        transform: translate3d(39px, 0px, 0px);
+      }
+      &.tab-right {
+        transform: translate3d(133px, 0px, 0px);
+      }
+    }
+  }
 }

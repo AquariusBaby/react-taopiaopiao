@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import LoadMore from '@components/loadMore';
 import './preRelease.less';
 import {getPreReleaseList} from '@api/homeService';
 
@@ -26,7 +27,7 @@ export default class PreRelease extends Component {
 
   render() {
     return (
-      <div className="pre-release-wrapper">
+      <div className={`pre-release-wrapper ${this.props.isShow ? '' : 'hide'}`}>
         <ul className="pre-release-list">
           {
             this.state.movieList.length > 0 &&
@@ -60,7 +61,7 @@ export default class PreRelease extends Component {
                         }
                         <div className="fantastic"></div>
                       </div>
-                      <a className="btn-wrap" href="">预售</a>
+                      <button className="btn-wrap">预售</button>
                     </div>
                   ))
                 }
@@ -68,6 +69,7 @@ export default class PreRelease extends Component {
             ))
           }
         </ul>
+        <LoadMore></LoadMore>
       </div>
     )
   }

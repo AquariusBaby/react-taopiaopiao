@@ -1,5 +1,11 @@
 @import "../../../style/mixin.less";
 .pre-release-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  &.hide {
+    display: none;
+  }
   .date {
     padding: 10px 0 10px 20px;
     .wh(100%, 19px);

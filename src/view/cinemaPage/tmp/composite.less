@@ -1,0 +1,23 @@
+@import "../../../style/mixin.less";
+
+.composite-option-wrapper {
+    max-height: 80%;
+    width: 100%;
+    padding-bottom: 1.6vw;
+    border-radius: 0 0 12px 12px;
+    background: #fff;
+    position: absolute;
+    &.hide {
+        display: none;
+    }
+    .item {
+        padding: 0 15px;
+        height: 40px;
+        line-height: 40px;
+        // background: #fff;
+        .font(14px, #000);
+        &.cur {
+            color: #ff5456;
+        }
+    }
+}

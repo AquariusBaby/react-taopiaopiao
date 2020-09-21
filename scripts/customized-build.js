@@ -15,7 +15,6 @@ var proxyquire = require('proxyquire');
 switch(process.argv[2]) {
   // The "start" script is run during development mode
   case 'start':
-    console.log(123);
     rewireModule('react-scripts/scripts/start.js', loadCustomizer('./overrides-config.dev'));
     break;
   // The "build" script is run to produce a production bundle
@@ -60,9 +59,9 @@ function loadCustomizer(module) {
 function rewireModule(modulePath, customizer) {
   // Load the module with `rewire`, which allows modifying the
   // script's internal variables.
-  console.log(modulePath);
+  // console.log(modulePath);
   let defaults = rewire(modulePath);
-  console.log(defaults);
+  // console.log(defaults);
 
   // Reach into the module, grab its global 'config' variable,
   // and pass it through the customizer function.
@@ -70,6 +69,6 @@ function rewireModule(modulePath, customizer) {
   // react-scripts imports the config as a `const` and we can't
   // modify that reference.
   let config = defaults.__get__('devServer');
-  console.log(config);
+  // console.log(config);
   customizer(config);
 }

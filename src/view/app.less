@@ -1,0 +1,33 @@
+@import '../style/mixin.less';
+#app {
+    // padding-top: 50px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    .bottom-nav {
+        .half-border(top);
+        .position-left-bottom(fixed, 0, 0);
+        .wh(100%, 50px);
+        display: flex;
+        align-items: center;
+        z-index: 100;
+        background-color: #fff;
+        .item {
+            flex: 1;
+            text-align: center;
+            color: #777;
+            .icon {
+                font-size: 25px;
+            }
+            .name {
+                display: inline-block;
+                width: 100%;
+                margin-top: 3px;
+                text-align: center;
+                font-size: 12px;
+            }
+            &.cur {
+                color: #ff4d64;
+            }
+        }
+    }
+}
